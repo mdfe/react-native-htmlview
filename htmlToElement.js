@@ -90,15 +90,15 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
         }
 
         let linkPressHandler = null;
-        let linkLongPressHandler = null;
-        if (node.name === 'a' && node.attribs && node.attribs.href) {
-          linkPressHandler = () =>
-            opts.linkHandler(entities.decodeHTML(node.attribs.href));
-          if (opts.linkLongPressHandler) {
-            linkLongPressHandler = () =>
-              opts.linkLongPressHandler(entities.decodeHTML(node.attribs.href));
-          }
-        }
+        // let linkLongPressHandler = null;
+        // if (node.name === 'a' && node.attribs && node.attribs.href) {
+        //   linkPressHandler = () =>
+        //     opts.linkHandler(entities.decodeHTML(node.attribs.href));
+        //   if (opts.linkLongPressHandler) {
+        //     linkLongPressHandler = () =>
+        //       opts.linkLongPressHandler(entities.decodeHTML(node.attribs.href));
+        //   }
+        // }
 
         let linebreakBefore = null;
         let linebreakAfter = null;
@@ -150,7 +150,7 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
             key={index}
             onPress={linkPressHandler}
             style={!node.parent ? styles[node.name] : null}
-            onLongPress={linkLongPressHandler}
+            // onLongPress={linkLongPressHandler}
           >
             {linebreakBefore}
             {listItemPrefix}
